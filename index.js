@@ -1,4 +1,3 @@
-
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
@@ -14,7 +13,9 @@ app.use(express.json())
 
 
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.5hhs7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dpihr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -23,8 +24,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 const run = async () => {
     try {
         await client.connect();
-        const database = client.db("worldTour");
-        const touristCollection = database.collection("tourist");
+        const database = client.db("Travel");
+        const touristCollection = database.collection("sights");
         const userCollection = database.collection("user");
         console.log('connected')
 
